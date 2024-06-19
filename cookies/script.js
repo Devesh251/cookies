@@ -14,15 +14,19 @@ document.getElementById("submitBtn").addEventListener("click", function () {
   var password = document.getElementById("password").value;
 
   if (username && password) {
-    var existingUsers = getCookie("users")
-      ? JSON.parse(getCookie("users"))
+    // var existingUsers = getCookie("users")
+    //   ? JSON.parse(localStorage.getItem("users"))
+    //   : [];
+    var existingUsers = localStorage.getItem("users")
+      ? JSON.parse(localStorage.getItem("users"))
       : [];
     if (existingUsers.includes(username)) {
       alert("Username already exists. Please enter a different username.");
       document.getElementById("submitBtn").disabled = true;
     } else {
       existingUsers.push(username);
-      setCookie("users", JSON.stringify(existingUsers), 365);
+      // setCookie("users", JSON.stringify(existingUsers), 365);
+      setLocal("users", JSON.stringify(existingUsers));
       alert("Information saved!");
       document.getElementById("popup").style.display = "none";
     }
@@ -41,15 +45,19 @@ document.getElementById("username").addEventListener("input", function () {
   }
 });
 
-function setCookie(name, value, days) {
-  var expires = "";
-  if (days) {
-    var date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    expires = "; expires=" + date.toUTCString();
-  }
-  document.cookie = name + "=" + (value || "") + expires + "; path=/";
+function setLocal(name, value) {
+  localStorage.setItem(name, value);
 }
+
+// function setCookie(name, value, days) {
+//   var expires = "";
+//   if (days) {
+//     var date = new Date();
+//     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+//     expires = "; expires=" + date.toUTCString();
+//   }
+//   document.cookie = name + "=" + (value || "") + expires + "; path=/";
+// }
 
 function getCookie(name) {
   var nameEQ = name + "=";
