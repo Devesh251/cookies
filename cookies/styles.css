@@ -1,11 +1,27 @@
 body {
   font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 #openPopup {
   margin: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 12px 24px;
+  font-size: 18px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#openPopup:hover {
+  background-color: #0056b3;
 }
 
 .popup {
@@ -23,9 +39,10 @@ body {
 .popup-content {
   background-color: white;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   width: 300px;
   position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .close {
@@ -38,6 +55,7 @@ body {
 
 h2 {
   margin-top: 0;
+  color: #333;
 }
 
 label,
@@ -50,6 +68,30 @@ button {
 
 input,
 button {
-  padding: 8px;
+  padding: 10px;
   box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
