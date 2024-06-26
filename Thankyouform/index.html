@@ -64,6 +64,8 @@
           id="contact"
           name="contact"
           pattern="\d{10}"
+          maxlength="10"
+          oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
           required
         />
         <br />
