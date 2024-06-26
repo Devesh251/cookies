@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form with Validation and Thank You Popup</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Savvas Learning Company</h1>
+    <div class="content">
+      <p>
+        We are a next-generation learning company that combines new ideas, new
+        ways of thinking, and new ways of interacting to create innovative
+        learning solutions.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+        venenatis erat nec odio bibendum, ac elementum nulla volutpat. Lorem
+        ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis
+        erat nec odio bibendum, ac elementum nulla volutpat. Lorem ipsum dolor
+        sit amet, consectetur adipiscing elit. Quisque venenatis erat nec odio
+        bibendum, ac elementum nulla volutpat. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Quisque venenatis erat nec odio bibendum,
+        ac elementum nulla volutpat. Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Quisque venenatis erat nec odio bibendum, ac elementum
+        nulla volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Quisque venenatis erat nec odio bibendum, ac elementum nulla volutpat.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+        venenatis erat nec odio bibendum, ac elementum nulla volutpat.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+        venenatis erat nec odio bibendum, ac elementum nulla volutpat. Lorem
+        ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis
+        erat nec odio bibendum, ac elementum nulla volutpat. Lorem ipsum dolor
+        sit amet, consectetur adipiscing elit. Quisque venenatis erat nec odio
+        bibendum, ac elementum nulla volutpat. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Quisque venenatis erat nec odio bibendum,
+        ac elementum nulla volutpat. Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Quisque venenatis erat nec odio bibendum, ac elementum
+        nulla volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Quisque venenatis erat nec odio bibendum, ac elementum nulla volutpat.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+        venenatis erat nec odio bibendum, ac elementum nulla volutpat.
+      </p>
+
+      <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <br />
+        <label for="email">Gmail ID:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          pattern=".+@gmail\.com"
+          required
+        />
+        <br />
+        <label for="contact">Contact No:</label>
+        <input
+          type="tel"
+          id="contact"
+          name="contact"
+          pattern="\d{10}"
+          required
+        />
+        <br />
+        <label for="organization">Organization Name:</label>
+        <input type="text" id="organization" name="organization" required />
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span id="closePopup" class="close">&times;</span>
+        <h2>Thank You!</h2>
+        <p>Your information has been submitted successfully.</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
