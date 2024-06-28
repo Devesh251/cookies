@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.tiles-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px;
+}
+
+.tile {
+  flex: 1 1 calc(20% - 10px); /* 5 tiles per row on large screens */
+  height: 150px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Ensure content stays within rounded corners */
+}
+
+.tile span {
+  font-size: 1rem;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.tile:hover {
+  background-color: #e0e0e0;
+}
+
+.tile:hover span {
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+@media (max-width: 1024px) {
+  .tile {
+    flex: 1 1 calc(33.333% - 10px); /* 3 tiles per row on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .tile {
+    flex: 1 1 calc(50% - 10px); /* 2 tiles per row on smaller tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .tile {
+    flex: 1 1 calc(100% - 10px); /* 1 tile per row on mobile */
+  }
+}
