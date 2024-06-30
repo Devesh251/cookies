@@ -1,0 +1,11 @@
+#footer {
+  border: 2px solid black;
+}
+#footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.no-border {
+  border: none;
+}/*# sourceMappingURL=styles.css.map */

@@ -3,46 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Disable Developer Tools</title>
+    <title>Disable Right Click in document.write</title>
   </head>
   <body>
-    <a
-      href="#"
-      onclick="openNewWindow('https://tic-tok-project-by-devesh.netlify.app/')"
-      >Open Secure Window</a
-    >
-
     <script>
-      function openNewWindow(url) {
-        const newWindow = window.open(
-          url,
-          "secureWindow",
-          "width=800,height=600"
-        );
-
-        if (newWindow) {
-          // Disable right-click context menu
-          newWindow.document.addEventListener("contextmenu", (event) =>
-            event.preventDefault()
-          );
-
-          // Disable common shortcuts
-          newWindow.document.addEventListener("keydown", function (event) {
-            if (
-              event.ctrlKey ||
-              event.key === "F12" ||
-              event.key === "I" ||
-              event.key === "J" ||
-              event.key === "U" ||
-              event.key === "S" ||
-              event.key === "H" ||
-              event.key === "C"
-            ) {
-              event.preventDefault();
-            }
-          });
-        }
+      function writeContent() {
+        document.write(`
+                <div>
+                    <p>Right-clicking in this dynamically written content is disabled.</p>
+                    <script>
+                        document.addEventListener('contextmenu', function(event) {
+                            event.preventDefault();
+                        });
+                    <\/script>
+                </div>
+            `);
       }
+
+      writeContent();
     </script>
   </body>
 </html>

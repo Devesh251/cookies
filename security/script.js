@@ -6,8 +6,14 @@ document
     let secureWindow = window.open("", "SecureWindow", "width=800,height=600");
 
     if (secureWindow) {
+      // function writeContent() {
+      //   secureWindow.document.write(
+      //     '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Embed URL with iframe</title><style>iframe {width: 100%;height: 100vh; /* Full viewport height */border: none;}</style><script>document.addEventListener(contextmenu, function(event) {event.preventDefault();});</script></head><body><iframe src="https://tic-tok-project-by-devesh.netlify.app"></iframe></body></html>'
+      //   );
+      // }
+      // writeContent();
       secureWindow.document.write(
-        '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Secure Content</title><style>body { font-family: Arial, sans-serif; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; } .content { text-align: center; }</style></head><body><a href="https://tic-tok-project-by-devesh.netlify.app" >Open Secure Window12111</a></body></html>'
+        '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Embed URL with iframe</title><style>iframe {width: 100%;height: 100vh; /* Full viewport height */border: none;}</style></head><body><iframe src="https://tic-tok-project-by-devesh.netlify.app"></iframe></body></html>'
       );
 
       // Hide URL
