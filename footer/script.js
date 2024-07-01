@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Function to check if the ul is empty and remove the border if so
   const checkEmptyList = () => {
-    if (footer.children.length === 0 || ul.children.length === 0) {
+    if (ul.children.length === 0) {
       footer.classList.add("no-border");
     }
-    // else {
-    //   footer.classList.remove("no-border");
-    // }
+    if (footer.children.length === 0) {
+      footer.classList.add("no-border");
+    }
   };
 
   // Initial check
@@ -17,5 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // MutationObserver to watch for changes in the ul
   const observer = new MutationObserver(checkEmptyList);
+  observer.observe(ul, { childList: true });
   observer.observe(footer, { childList: true });
 });
