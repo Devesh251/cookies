@@ -8,7 +8,7 @@ footer {
 
 /* Hides the border if the ul is empty */
 #footer-list:empty + footer {
-  border: none !important;
+  border: none;
 }
 
 #footer-list {
