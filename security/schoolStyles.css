@@ -1,0 +1,107 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  overflow: hidden; /* Hide the scrollbar */
+  height: 100vh; /* Make sure the body takes full viewport height */
+}
+
+/* To keep the page scrollable while hiding the scrollbar */
+html,
+body {
+  overflow: hidden;
+}
+
+main {
+  overflow-y: scroll; /* Allow vertical scrolling within main */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+main::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Header Styles */
+header {
+  background-color: #0044cc;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: rgb(205, 153, 31);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content Styles */
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  height: calc(100vh - 40px); /* Subtracting header height and padding */
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  color: #0044cc;
+  border-bottom: 2px solid #0044cc;
+  padding-bottom: 10px;
+}
+
+section p,
+section ul {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  background: #f0f0f0;
+  margin: 10px 0;
+  padding: 10px;
+  border-left: 5px solid #0044cc;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #0044cc;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
