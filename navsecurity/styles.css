@@ -3,6 +3,7 @@ body {
   background-color: #f0f0f0;
   margin: 0;
   padding: 0;
+  overflow-y: hidden;
 }
 
 nav {
@@ -26,4 +27,4 @@ nav ul li a {
 }
 nav ul li a:hover {
   text-decoration: underline;
-}/*# sourceMappingURL=styles.css.map */
+} /*# sourceMappingURL=styles.css.map */

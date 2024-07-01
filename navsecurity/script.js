@@ -7,7 +7,8 @@ document
 
     if (secureWindow) {
       secureWindow.document.write(
-        '<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Embed URL with iframe</title><style>iframe {width: 100%;height: 100vh; /* Full viewport height */border: none;}</style></head><body><iframe src="https://www.google.com/></iframe></body></html>
+        // '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Secure Content</title><style>body { font-family: Arial, sans-serif; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; } .content { text-align: center; }</style></head><body><div class="content"><h1>Secure Content</h1><p>This is a secure window. URL is hidden and inspect tools are disabled.</p> </div></body></html>'
+        '<!DOCTYPE html> <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Embed URL with iframe</title><style>iframe {width: 100%;height: 100vh; /* Full viewport height */border: none;}</style></head><body><iframe src="https://www.openai.com"></iframe></body></html>'
       );
 
       // Hide URL

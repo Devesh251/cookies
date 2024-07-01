@@ -1,0 +1,35 @@
+footer {
+  border: 2px solid black;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
+/* Hides the border if the ul is empty */
+#footer-list:empty + footer {
+  border: none !important;
+}
+
+#footer-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#footer-list li {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 1.2em;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+p {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 600px;
+  line-height: 1.5;
+}
