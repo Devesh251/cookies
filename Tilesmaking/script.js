@@ -14,7 +14,3 @@ for (let i = 0; i < 10; i++) {
 Promise.all(tilePromises).then((tiles) => {
   document.getElementById("tiles").innerHTML = tiles.join("");
 });
-
-window.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
-});
