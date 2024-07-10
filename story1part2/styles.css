@@ -63,7 +63,11 @@ body {
 }
 
 .first {
-  padding: 0%;
+  margin-bottom: 20px;
+}
+
+.ele1{
+  margin: 0px;
 }
 
 @media (max-width: 1024px) {
