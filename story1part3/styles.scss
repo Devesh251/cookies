@@ -28,8 +28,8 @@ body {
 .card {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Changed to align items to the left */
-  text-align: left; /* Changed to align text to the left */
+  align-items: center;
+  text-align: center;
 }
 
 .card img {
@@ -40,12 +40,11 @@ body {
 
 .content {
   margin-top: 10px;
-  width: 100%; /* Ensures content takes full width */
 }
 
 .content ul {
-  list-style: disc; /* Changed to use disc (dot) points */
-  padding-left: 20px; /* Adds space for the disc */
+  list-style: none;
+  padding: 0;
 }
 
 .content ul li {
@@ -60,13 +59,6 @@ body {
 
 .content ul li a:hover {
   color: #0056b3;
-}
-.first {
-  margin-bottom: 20px;
-}
-
-.ele1 {
-  margin: 0px;
 }
 
 @media (max-width: 1024px) {
