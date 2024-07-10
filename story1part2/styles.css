@@ -67,15 +67,4 @@ body {
 
 .ele1 {
   margin: 0px;
-}
-
-@media (max-width: 1024px) {
-  .group {
-    flex: 1 1 calc(50% - 40px);
-  }
-}
-@media (max-width: 768px) {
-  .group {
-    flex: 1 1 100%;
-  }
 }/*# sourceMappingURL=styles.css.map */

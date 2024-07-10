@@ -6,9 +6,18 @@ document
     let secureWindow = window.open("", "SecureWindow", "width=800,height=600");
 
     if (secureWindow) {
-      secureWindow.document.write(
-        '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Embed URL with iframe</title><style>iframe {width: 100%;height: 100vh; /* Full viewport height */border: none;}</style></head><body><iframe src="./school.html"></iframe></body></html>'
-      );
+      // secureWindow.document.write(
+      //   '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Embed URL with iframe</title><style>iframe {width: 100%;height: 100vh; /* Full viewport height */border: none;}</style></head><body><iframe src="./school.html"></iframe></body></html>'
+      // );
+
+      fetch("embed.html")
+        .then((response) => response.text())
+        .then((htmlContent) => {
+          secureWindow.document.write(htmlContent);
+        })
+        .catch((error) =>
+          console.error("Error fetching the HTML file:", error)
+        );
 
       // Hide URL
       //secureWindow.history.pushState({}, "", "/hidden-url");
@@ -36,6 +45,6 @@ document
       });
 
       // Focus the new window
-      secureWindow.focus();
+      // secureWindow.focus();
     }
   });
