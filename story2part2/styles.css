@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tile-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Add some gap between tiles */
+  justify-content: center;
+}
+
+.tile {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  overflow: hidden;
+  width: calc(100% - 40px); /* Full width for horizontal layout */
+  display: flex;
+  flex-direction: row; /* Ensure content is displayed horizontally */
+}
+
+.tile img {
+  width: 150px; /* Fixed width for the image */
+  height: auto;
+  border-right: 1px solid #ccc;
+}
+
+.tile-content {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  flex: 1;
+}
+
+.tile-info,
+.tile-program,
+.tile-links {
+  padding: 5px 0;
+}
+
+.tile-links ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.tile-links ul li {
+  margin-bottom: 5px;
+}
+
+.tile-links ul li a {
+  text-decoration: none;
+  color: #0066cc;
+}
+
+.tile-links ul li a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .tile {
+    flex-direction: column; /* Stack content vertically on smaller screens */
+    align-items: center;
+  }
+  .tile img {
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+  }
+}
+@media (max-width: 768px) {
+  .tile {
+    width: calc(100% - 20px); /* Full width on mobile devices */
+  }
+}/*# sourceMappingURL=styles.css.map */

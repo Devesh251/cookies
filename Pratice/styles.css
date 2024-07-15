@@ -1,0 +1,14 @@
+.container {
+  display: inline-flex;
+  text-align: center;
+}
+
+.card {
+  background: white;
+  width: 220px;
+  margin: 20px;
+}
+
+.image {
+  width: 100%;
+}
