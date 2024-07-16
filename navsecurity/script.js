@@ -1,16 +1,14 @@
-document
-  .getElementById("secureLink")
-  .addEventListener("click", function (event) {
+document.querySelectorAll(".secureLink").forEach(function (element) {
+  element.addEventListener("click", function (event) {
     event.preventDefault();
 
-    let secureWindow = window.open("", "SecureWindow", "width=800,height=600");
+    // Get the URL from the data-url attribute
+    let url = this.getAttribute("data-url");
+
+    // Open a new window with the specified URL
+    let secureWindow = window.open(url, "SecureWindow", "width=800,height=600");
 
     if (secureWindow) {
-      secureWindow.document.write(
-        // '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Secure Content</title><style>body { font-family: Arial, sans-serif; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; } .content { text-align: center; }</style></head><body><div class="content"><h1>Secure Content</h1><p>This is a secure window. URL is hidden and inspect tools are disabled.</p> </div></body></html>'
-        '<!DOCTYPE html> <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Embed URL with iframe</title><style>iframe {width: 50%;height: 50vh; /* Full viewport height */border: none;}</style></head><body><iframe src="https://www.openai.com"></iframe> </body></html>'
-      );
-
       // Hide URL
       secureWindow.history.pushState({}, "", "/hidden-url");
 
@@ -29,7 +27,7 @@ document
         }
       });
 
-      // Disable shortcuts
+      // Disable other shortcuts
       secureWindow.document.addEventListener("keydown", function (e) {
         if (e.ctrlKey || e.altKey || e.metaKey) {
           e.preventDefault();
@@ -40,3 +38,4 @@ document
       secureWindow.focus();
     }
   });
+});

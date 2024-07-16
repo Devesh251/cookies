@@ -10,6 +10,10 @@ h1 {
   color: rgba(4, 43, 83, 0.9333333333);
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 .tile-container {
   display: flex;
   flex-wrap: wrap;
