@@ -10,7 +10,7 @@ document.querySelectorAll(".secureLink").forEach(function (element) {
 
     if (secureWindow) {
       // Hide URL
-      secureWindow.history.pushState({}, "", "/hidden-url");
+      secureWindow.history.replaceState({}, "", "/hidden-url");
 
       // Disable context menu (right-click)
       secureWindow.document.addEventListener("contextmenu", function (e) {
