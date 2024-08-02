@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countdown Modal with Web Worker</title>
+    <style>
+        /* Basic modal styles */
+        .modal {
+            display: none; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+            padding-top: 60px; 
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+        }
+
+        #closecountdown {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+	#closecountdown:hover,
+        #closecountdown:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<button id='ChangeColor'>Click here to Change Color</button>
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+       <span id="closecountdown">&times;</span>
+        <h1>Your session will be expired in <span id="countdown">120</span> seconds</h1>
+<div>
+<button id='Snooze'>Snooze 30 seconds</button>
+<button id='Extend'>Extend</button>
+<button id='Login' style='display:none'>Login</button>
+</div>
+    </div>
+</div>
+
+<script>
+    let worker;
+
+    function startCountdown() {
+        if (window.Worker) {
+            if (!worker) {
+                worker = new Worker('script/worker.js');
+
+                worker.onmessage = function(e) {
+                    const countdownElement = document.getElementById('countdown');
+                    if (e.data.type === 'done') {
+			countdownElement.parentNode.innerHTML = 'Your session expired.'
+			document.getElementById("Snooze").style.display = "none";
+			document.getElementById("Extend").style.display = "none";
+			document.getElementById("Login").style.display = "block";
+                    } else if (e.data.type === 'countdown') {
+                        countdownElement.textContent = e.data.time;
+                    } else if (e.data.type === 'redirect') {
+                        window.location.href = e.data.url;
+                    }
+                };
+            }
+            worker.postMessage('start');
+        } else {
+            console.log('Your browser doesn\'t support web workers.');
+        }
+    }
+
+    function showModal() {
+        const modal = document.getElementById("myModal");
+        const snoozeButton = document.getElementById("Snooze");
+	const extendButton = document.getElementById("Extend");
+	const closeButton = document.getElementById("closecountdown");
+	const changecolorButton = document.getElementById("ChangeColor");
+
+        // Display the modal
+        modal.style.display = "block";
+
+        // When the user clicks on snooze button, close the modal
+        snoozeButton.onclick = function() {
+            modal.style.display = "none";
+        	// Show the popup after 30 seconds
+        	delay(30000).then(displayModal);
+        }
+ 	// Function to return a promise that resolves after a specified time
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+
+ 	// When the user clicks on close button, close the modal
+        closeButton.onclick = function() {
+            modal.style.display = "none";
+        }
+
+ changecolorButton.onclick = function() {
+            if(document.body.style.backgroundColor == "rgb(0, 183, 0)")
+		document.body.style.backgroundColor = "rgb(183, 0, 0)";
+	    else
+		document.body.style.backgroundColor = "rgb(0, 183, 0)";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        extendButton.onclick = function(event) {
+            worker.postMessage('AJAX Call');
+        }
+
+        // Start countdown and setup auto-reopen
+        startCountdown();
+        
+    }
+
+function callAjaxMethod()
+{
+worker.postMessage('AJAX Call');
+}
+
+function displayModal()
+{
+ const modal = document.getElementById("myModal");
+
+        // Display the modal
+        modal.style.display = "block";
+}
+
+    // Start with showing the modal
+    document.addEventListener('DOMContentLoaded', (event) => {
+        showModal();
+    });
+
+// Attach event listeners
+        window.addEventListener('resize', callAjaxMethod);
+        window.addEventListener('scroll', callAjaxMethod);
+        window.addEventListener('load', callAjaxMethod);
+        window.addEventListener('unload',callAjaxMethod);
+        window.addEventListener('beforeunload', callAjaxMethod);
+        window.addEventListener('focus', callAjaxMethod);
+        window.addEventListener('blur', callAjaxMethod);
+// If you want to catch all clicks on the document
+        document.addEventListener('click', callAjaxMethod);
+
+        // For capturing other events
+        document.addEventListener('keypress', callAjaxMethod);
+        document.addEventListener('change', callAjaxMethod);
+</script>
+
+</body>
+</html>
